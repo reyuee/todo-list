@@ -4,7 +4,10 @@ namespace TODOO_app;
 
 public partial class MainPage : ContentPage
 {
-    public ObservableCollection<string> Items { get; set; } = new ObservableCollection<string>();
+
+
+    public ObservableCollection<TaskItem> Items { get; set; }
+
 
     public MainPage()
     {
@@ -12,20 +15,40 @@ public partial class MainPage : ContentPage
         BindingContext = this;
     }
 
+    public class TaskItem
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+    }
+
+
     private void OnAddClicked(object sender, EventArgs e)
     {
         string newItem = AddListItem?.Text?.Trim();
+        string addtoItem = AddDescription?.Text?.Trim();
+
 
         if (!string.IsNullOrEmpty(newItem))
         {
-            Items.Add(newItem);
+
+            var task = new TaskItem
+            {
+                Title = newItem,
+                Description = addtoItem
+            };
+
+
+            Items.Add(task);
             AddListItem.Text = string.Empty;
+            AddDescription.Text = string.Empty;
         }
+
+
     }
 
     private async void DeleteOnClick(object sender, EventArgs e)
     {
-        if (sender is Button button && button.BindingContext is string item)
+        if (sender is Button button && button.BindingContext is TaskItem item)
         {
             bool confirm = await DisplayAlert("Ta bort", $"Är du säker på att du vill ta bort '{item}'?", "Ja", "Nej");
             if (confirm)
@@ -35,3 +58,4 @@ public partial class MainPage : ContentPage
         }
     }
 }
+

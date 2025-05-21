@@ -2,83 +2,94 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TODOO_app.MainPage"
-             BackgroundColor="#F8F8FF">
+             BackgroundColor="#28282B">
 
     <ScrollView>
         <VerticalStackLayout Padding="30" Spacing="20">
 
-            <!-- Title -->
-           
 
+           
+    
 
 
             <Image Source="todo1.png"
-       WidthRequest="100"
-       HeightRequest="100"
-       HorizontalOptions="Center"
-       Margin="0,0,0,30" />
-            <!-- 👈 adds space below -->
-
-
-
-            <!-- Entry Field -->
+               WidthRequest="100"
+               HeightRequest="100"
+               HorizontalOptions="Center"
+               Margin="0,0,0,30" />
+           
+    
             <Frame Padding="0"
-                   BorderColor="Black"
+                   BorderColor="Transparent"
                    HasShadow="False"
                    CornerRadius="6"
                    BackgroundColor="Transparent"
                    Margin="0,5">
+                
                 <Entry x:Name="AddListItem"
                        Placeholder="Skriv ner ett nytt task"
                        BackgroundColor="Transparent"
-                       TextColor="Black"
+                       TextColor="White"
                        FontSize="14"
-                       PlaceholderColor="#888"/>
+                PlaceholderColor="#888"/>
+
+
             </Frame>
 
-            <!-- Add Button -->
+
+            <Frame Padding="0"
+                BorderColor="Transparent"
+                HasShadow="False"
+                CornerRadius="6"
+                BackgroundColor="Transparent"
+                Margin="0,5">
+
+                <Entry x:Name="AddDescription" Placeholder="Skriv en beskrivning" BackgroundColor="Transparent" TextColor="White" FontSize="14" PlaceholderColor="#888" />
+
+            </Frame>
+            
             <Button Text="➕ Lägg till" 
-                    BackgroundColor="#A78BFA"
-                    TextColor="White"
+                    BackgroundColor="White"
+                    TextColor="Black"
                     CornerRadius="20"
                     FontSize="18"
                     Clicked="OnAddClicked">
                 <Button.Shadow>
-                    <Shadow Brush="Black" Opacity="0.3" Radius="10" Offset="5,5" />
+                    <Shadow Brush="Black" Opacity="0.6" Radius="10" Offset="5,5" />
                 </Button.Shadow>
                 
                 
             </Button>
 
-            <!-- ToDo List -->
             <CollectionView ItemsSource="{Binding Items}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10"
-                              BackgroundColor="White"
-                              ColumnDefinitions="*, auto"
-                              Margin="0,5">
-                            <!-- Task Text -->
-                            <Label Text="{Binding .}"
-                                   FontSize="18"
-                                   VerticalOptions="Center"
-                                   TextColor="#333" />
+                        <Frame BorderColor="Transparent"  Margin="10" Padding="10">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Title}" 
+                           FontSize="18" 
+                           FontAttributes="Bold" />
+                                <Label Text="{Binding Description}" 
+                           FontSize="14" 
+                           TextColor="Gray" />
 
-                            <!-- Delete Button -->
-                            <Button Text="✗"
-                                    BackgroundColor="#FF5252"
-                                    TextColor="White"
-                                    FontSize="14"
-                                    WidthRequest="40"
-                                    HeightRequest="40"
-                                    Grid.Column="1"
-                                    BindingContext="{Binding .}"
-                                    Clicked="DeleteOnClick" />
-                        </Grid>
+                                <Button Text="✗"
+                                BackgroundColor="#FF5252"
+                                TextColor="White"
+                                FontSize="14" 
+                                HorizontalOptions="EndAndExpand"
+                                BindingContext="{Binding .}"
+                                   Clicked="DeleteOnClick" />
+                            </VerticalStackLayout>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
+
+
