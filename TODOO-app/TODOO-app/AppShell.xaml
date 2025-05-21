@@ -6,7 +6,7 @@
     xmlns:views="clr-namespace:TODOO_app">
 
     <ShellContent
-        Title="Home"
+        
         Route="MainPage"
         ContentTemplate="{DataTemplate views:MainPage}" />
 

@@ -1,72 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TODOO_app.MainPage">
+             x:Class="TODOO_app.MainPage"
+             BackgroundColor="#F8F8FF">
 
-    <Grid ColumnDefinitions=".75*, .25*"
-          RowDefinitions="100, auto, auto, *, 100"
-          Padding="10"
-          ColumnSpacing="10"
-          RowSpacing="10">
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
 
-        <!-- Image Banner -->
-        <Image Source="todopic.png" Grid.ColumnSpan="2" />
+            <!-- Title -->
+           
 
-        <!-- Header -->
-        <Label x:Name="Message"
-               Text="Todo"
-               Grid.Row="1" 
-               FontSize="24"
-               HorizontalTextAlignment="Center" 
-               Padding="20"
-               Grid.ColumnSpan="2"/>
 
-        <!-- Entry for adding items -->
-        <Entry x:Name="AddListItem"
-               Placeholder="Note this..."
-               Grid.Row="2"
-               BackgroundColor="Black"
-               TextColor="White"
-               />
 
-        <!-- Add button -->
-        <Button Text="Add"
-                Grid.Row="2"
-                Grid.Column="1"
-                Clicked="OnAddClicked"
-                BackgroundColor="WhiteSmoke"
-                TextColor="Orange" />
+            <Image Source="todo1.png"
+       WidthRequest="100"
+       HeightRequest="100"
+       HorizontalOptions="Center"
+       Margin="0,0,0,30" />
+            <!-- 👈 adds space below -->
 
-        <!-- Todo List -->
-        <CollectionView Grid.Row="3"
-                        Grid.ColumnSpan="2" 
-                        ItemsSource="{Binding Items}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="5"
-                          BackgroundColor="White"
-                          ColumnDefinitions="*, auto">
 
-                        <!-- Todo item text -->
-                        <Label Text="{Binding .}"
-                               FontSize="20"
-                               VerticalOptions="Center"
-                               Padding="5"
-                               TextColor="Black" />
 
-                        <!-- Delete button -->
-                        <Button Text="X"
-                                FontSize="16"
-                                BackgroundColor="Red"
-                                TextColor="White"
-                                WidthRequest="40"
-                                HeightRequest="40"
-                                Clicked="DeleteOnClick"
-                                Grid.Column="1"
-                                BindingContext="{Binding .}" />
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </Grid>
+            <!-- Entry Field -->
+            <Frame Padding="0"
+                   BorderColor="Black"
+                   HasShadow="False"
+                   CornerRadius="6"
+                   BackgroundColor="Transparent"
+                   Margin="0,5">
+                <Entry x:Name="AddListItem"
+                       Placeholder="Skriv ner ett nytt task"
+                       BackgroundColor="Transparent"
+                       TextColor="Black"
+                       FontSize="14"
+                       PlaceholderColor="#888"/>
+            </Frame>
+
+            <!-- Add Button -->
+            <Button Text="➕ Lägg till" 
+                    BackgroundColor="#A78BFA"
+                    TextColor="White"
+                    CornerRadius="20"
+                    FontSize="18"
+                    Clicked="OnAddClicked">
+                <Button.Shadow>
+                    <Shadow Brush="Black" Opacity="0.3" Radius="10" Offset="5,5" />
+                </Button.Shadow>
+                
+                
+            </Button>
+
+            <!-- ToDo List -->
+            <CollectionView ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10"
+                              BackgroundColor="White"
+                              ColumnDefinitions="*, auto"
+                              Margin="0,5">
+                            <!-- Task Text -->
+                            <Label Text="{Binding .}"
+                                   FontSize="18"
+                                   VerticalOptions="Center"
+                                   TextColor="#333" />
+
+                            <!-- Delete Button -->
+                            <Button Text="✗"
+                                    BackgroundColor="#FF5252"
+                                    TextColor="White"
+                                    FontSize="14"
+                                    WidthRequest="40"
+                                    HeightRequest="40"
+                                    Grid.Column="1"
+                                    BindingContext="{Binding .}"
+                                    Clicked="DeleteOnClick" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

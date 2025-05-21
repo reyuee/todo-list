@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TODOO-app")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+899be6fa56a779226c9ea23ad473eac5507581a2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+fb873a1e431862c2a603bf605a0f2a879af9d156")]
 [assembly: System.Reflection.AssemblyProductAttribute("TODOO-app")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TODOO-app")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

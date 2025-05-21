@@ -1,36 +1,36 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace TODOO_app
+namespace TODOO_app;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    public ObservableCollection<string> Items { get; set; } = new ObservableCollection<string>();
+
+    public MainPage()
     {
-        public ObservableCollection<string> Items { get; set; }
+        InitializeComponent();
+        BindingContext = this;
+    }
 
-        public MainPage()
+    private void OnAddClicked(object sender, EventArgs e)
+    {
+        string newItem = AddListItem?.Text?.Trim();
+
+        if (!string.IsNullOrEmpty(newItem))
         {
-            InitializeComponent();
-            Items = new ObservableCollection<string>();
-            this.BindingContext = this;
+            Items.Add(newItem);
+            AddListItem.Text = string.Empty;
         }
+    }
 
-        private void OnAddClicked(object sender, EventArgs e)
+    private async void DeleteOnClick(object sender, EventArgs e)
+    {
+        if (sender is Button button && button.BindingContext is string item)
         {
-            if (!string.IsNullOrWhiteSpace(AddListItem.Text))
+            bool confirm = await DisplayAlert("Ta bort", $"Är du säker på att du vill ta bort '{item}'?", "Ja", "Nej");
+            if (confirm)
             {
-                Items.Add(AddListItem.Text);
-                AddListItem.Text = string.Empty;
-            }
-        }
-
-        private async void DeleteOnClick(object sender, EventArgs e)
-        {
-            if (sender is Button button && button.BindingContext is string item)
-            {
-                bool answer = await DisplayAlert("Confirm Delete", $"Are you sure you want to delete '{item}'?", "Yes", "No");
-                if (answer)
-                {
-                    Items.Remove(item);
-                }
+                Items.Remove(item);
             }
         }
     }

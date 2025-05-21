@@ -467,3 +467,9 @@ C:\Users\kristian.chasjba\source\repos\TODOO-app\TODOO-app\obj\Debug\net9.0-wind
 C:\Users\kristian.chasjba\source\repos\TODOO-app\TODOO-app\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\qualifiers.txt
 C:\Users\kristian.chasjba\source\repos\TODOO-app\TODOO-app\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\Users\kristian.chasjba\source\repos\TODOO-app\TODOO-app\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
+C:\Users\kristian.chasjba\source\repos\TODOO-app\TODOO-app\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\todo.scale-100.png
+C:\Users\kristian.chasjba\source\repos\TODOO-app\TODOO-app\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\todo.scale-100.png
+C:\Users\kristian.chasjba\source\repos\TODOO-app\TODOO-app\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\images.scale-100.png
+C:\Users\kristian.chasjba\source\repos\TODOO-app\TODOO-app\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\images.scale-100.png
+C:\Users\kristian.chasjba\source\repos\TODOO-app\TODOO-app\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\todo1.scale-100.png
+C:\Users\kristian.chasjba\source\repos\TODOO-app\TODOO-app\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\todo1.scale-100.png
