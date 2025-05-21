@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TODOO_app.MainPage">
+
+    <Grid ColumnDefinitions=".75*, .25*"
+          RowDefinitions="100, auto, auto, *, 100"
+          Padding="10"
+          ColumnSpacing="10"
+          RowSpacing="10">
+
+        <!-- Image Banner -->
+        <Image Source="todopic.png" Grid.ColumnSpan="2" />
+
+        <!-- Header -->
+        <Label x:Name="Message"
+               Text="Todo"
+               Grid.Row="1" 
+               FontSize="24"
+               HorizontalTextAlignment="Center" 
+               Padding="20"
+               Grid.ColumnSpan="2"/>
+
+        <!-- Entry for adding items -->
+        <Entry x:Name="AddListItem"
+               Placeholder="Note this..."
+               Grid.Row="2"
+               BackgroundColor="Black"
+               TextColor="White"
+               />
+
+        <!-- Add button -->
+        <Button Text="Add"
+                Grid.Row="2"
+                Grid.Column="1"
+                Clicked="OnAddClicked"
+                BackgroundColor="WhiteSmoke"
+                TextColor="Orange" />
+
+        <!-- Todo List -->
+        <CollectionView Grid.Row="3"
+                        Grid.ColumnSpan="2" 
+                        ItemsSource="{Binding Items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5"
+                          BackgroundColor="White"
+                          ColumnDefinitions="*, auto">
+
+                        <!-- Todo item text -->
+                        <Label Text="{Binding .}"
+                               FontSize="20"
+                               VerticalOptions="Center"
+                               Padding="5"
+                               TextColor="Black" />
+
+                        <!-- Delete button -->
+                        <Button Text="X"
+                                FontSize="16"
+                                BackgroundColor="Red"
+                                TextColor="White"
+                                WidthRequest="40"
+                                HeightRequest="40"
+                                Clicked="DeleteOnClick"
+                                Grid.Column="1"
+                                BindingContext="{Binding .}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
