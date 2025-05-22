@@ -3,101 +3,114 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TODOO_app.MainPage"
              BackgroundColor="#28282B">
+            
 
     <ScrollView>
         <VerticalStackLayout Padding="30" Spacing="20">
 
-
-           
-    
-
-
             <Image Source="todo1.png"
-               WidthRequest="100"
-               HeightRequest="100"
-               HorizontalOptions="Center"
-               Margin="0,0,0,30" />
-           
-    
-            <Frame Padding="0"
-                   BorderColor="Transparent"
-                   HasShadow="False"
-                   CornerRadius="6"
+                   WidthRequest="100"
+                   HeightRequest="100"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,30" />
+
+            <Entry x:Name="AddListItem"
+                   Placeholder="enter a new task"
                    BackgroundColor="Transparent"
-                   Margin="0,5">
-                
-                <Entry x:Name="AddListItem"
-                       Placeholder="Enter a new task"
-                       BackgroundColor="Transparent"
-                       TextColor="White"
-                       FontSize="14"
-                PlaceholderColor="#888"/>
+                   TextColor="White"
+                   FontSize="13"
+                   PlaceholderColor="#888"
+                   Margin="0,0,0,10" />
 
+            <Entry x:Name="AddDescription"
+                   Placeholder="provide a description"
+                   BackgroundColor="Transparent"
+                   TextColor="White"
+                   FontSize="12"
+                   PlaceholderColor="#888"
+                   HeightRequest="30" />
 
-            </Frame>
-
-
-            <Frame Padding="0"
-                BorderColor="Transparent"
-                HasShadow="False"
-                CornerRadius="6"
-                BackgroundColor="Transparent"
-                Margin="0,5">
-
-                <Entry
-    x:Name="AddDescription"
-    Placeholder="Provide descriptions"
-    BackgroundColor="Transparent"
-    TextColor="White"
-    FontSize="12"
-    PlaceholderColor="#888"
-    HeightRequest="30" />
-
-
-            </Frame>
-            
-            <Button Text="➕ Lägg till" 
-                    BackgroundColor="White"
-                    TextColor="Black"
+            <Button x:Name="AddButton"
+                    Text="➕ Lägg till"
+                    BackgroundColor="Black"
+                    TextColor="White"
                     CornerRadius="20"
-                    FontSize="18"
-                    Clicked="OnAddClicked">
-                <Button.Shadow>
-                    <Shadow Brush="Black" Opacity="0.6" Radius="10" Offset="5,5" />
-                </Button.Shadow>
-                
-                
+                    FontSize="15"
+                    Clicked="OnAddClicked"
+                    Padding="10,5">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#333333" />
+                                    <Setter Property="Scale" Value="0.95" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="PointerOver">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#444444" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
             </Button>
 
             <CollectionView ItemsSource="{Binding Items}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BorderColor="Transparent"  Margin="10" Padding="10">
-                            <VerticalStackLayout>
-                                <Label Text="{Binding Title}" 
-                           FontSize="18" 
-                           FontAttributes="Bold" />
-                                <Label Text="{Binding Description}" 
-                           FontSize="14" 
-                           TextColor="Gray" />
+                        <Frame Margin="10" Padding="15"
+                               BorderColor="#E0E0E0"
+                               BackgroundColor="Black"
+                               CornerRadius="12"
+                               HasShadow="True">
+                            <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+                                <Label Text="{Binding Title}"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="White"
+                                       Grid.Row="0" Grid.Column="0"
+                                       VerticalOptions="Center" />
 
                                 <Button Text="✗"
-                                BackgroundColor="#FF5252"
-                                TextColor="White"
-                                FontSize="14" 
-                                HorizontalOptions="EndAndExpand"
-                                BindingContext="{Binding .}"
-                                   Clicked="DeleteOnClick" />
-                            </VerticalStackLayout>
+                                        BackgroundColor="#E53935"
+                                        TextColor="White"
+                                        CornerRadius="12"
+                                        WidthRequest="35"
+                                        HeightRequest="35"
+                                        FontAttributes="Bold"
+                                        Grid.Row="0" Grid.Column="1"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center"
+                                        Clicked="DeleteOnClick">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroupList>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualState x:Name="Normal" />
+                                                <VisualState x:Name="Pressed">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="BackgroundColor" Value="#C62828" />
+                                                        <Setter Property="Scale" Value="0.95" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateGroupList>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Button>
+
+                                <Label Text="{Binding Description}"
+                                       FontSize="14"
+                                       TextColor="#BDBDBD"
+                                       Grid.Row="1" Grid.ColumnSpan="2"
+                                       Margin="0,5,0,0" />
+                            </Grid>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
-
-

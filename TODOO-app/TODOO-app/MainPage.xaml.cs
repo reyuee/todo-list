@@ -52,7 +52,7 @@ public partial class MainPage : ContentPage
     {
         if (sender is Button button && button.BindingContext is TaskItem item)
         {
-            bool confirm = await DisplayAlert("Ta bort", $"Är du säker på att du vill ta bort '{item}'?", "Ja", "Nej");
+            bool confirm = await DisplayAlert("Ta bort", $"Är du säker på att du vill ta bort '{item.Title}'?", "Ja", "Nej");
             if (confirm)
             {
                 Items.Remove(item);
