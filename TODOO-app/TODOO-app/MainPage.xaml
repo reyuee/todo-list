@@ -27,7 +27,7 @@
                    Margin="0,5">
                 
                 <Entry x:Name="AddListItem"
-                       Placeholder="Skriv ner ett nytt task"
+                       Placeholder="Enter a new task"
                        BackgroundColor="Transparent"
                        TextColor="White"
                        FontSize="14"
@@ -44,7 +44,15 @@
                 BackgroundColor="Transparent"
                 Margin="0,5">
 
-                <Entry x:Name="AddDescription" Placeholder="Skriv en beskrivning" BackgroundColor="Transparent" TextColor="White" FontSize="14" PlaceholderColor="#888" />
+                <Entry
+    x:Name="AddDescription"
+    Placeholder="Provide descriptions"
+    BackgroundColor="Transparent"
+    TextColor="White"
+    FontSize="12"
+    PlaceholderColor="#888"
+    HeightRequest="30" />
+
 
             </Frame>
             

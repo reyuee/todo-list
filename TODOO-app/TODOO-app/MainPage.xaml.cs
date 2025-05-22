@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
+
 namespace TODOO_app;
 
 public partial class MainPage : ContentPage
@@ -12,6 +13,7 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        Items = new ObservableCollection<TaskItem>();
         BindingContext = this;
     }
 
