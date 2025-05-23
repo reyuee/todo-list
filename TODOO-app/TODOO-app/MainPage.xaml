@@ -8,6 +8,8 @@
     <ScrollView>
         <VerticalStackLayout Padding="30" Spacing="20">
 
+            <Label Text="To-do:"></Label>
+
             <Image Source="todo1.png"
                    WidthRequest="100"
                    HeightRequest="100"
