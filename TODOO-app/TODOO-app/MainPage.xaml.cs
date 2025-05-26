@@ -21,14 +21,12 @@ public partial class MainPage : ContentPage
     {
         public string Title { get; set; }
         public string Description { get; set; }
+        public DateTime CreatedTime { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public string DisplayTime => CreatedTime.ToString("g");
     }
 
-    public string DisplayTime
-    {
-        get => CreatedAt.ToString("g");
-    }
+  
 
     private void OnAddClicked(object sender, EventArgs e)
     {
@@ -43,7 +41,7 @@ public partial class MainPage : ContentPage
             {
                 Title = newItem,
                 Description = addtoItem,
-                CreatedAt = DateTime.Now
+                CreatedTime = DateTime.Now
             };
 
 

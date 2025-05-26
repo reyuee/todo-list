@@ -10,7 +10,7 @@
 
             <Label Text="To-do:"></Label>
 
-            <Image Source="todo1.png"
+            <Image Source="checkmark.png"
                    WidthRequest="100"
                    HeightRequest="100"
                    HorizontalOptions="Center"
@@ -108,7 +108,7 @@
                                        Grid.Row="1" Grid.ColumnSpan="2"
                                        Margin="0,5,0,0" />
 
-                                <Label Text="{Binding DisplayTime}"
+                                <Label Text="{Binding CreatedTime}"
                                        FontSize="12"
                                        TextColor="#757575"
                                        HorizontalOptions="End"
